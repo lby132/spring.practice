@@ -1,7 +1,6 @@
 package hello.spring.practice.repository;
 
 import hello.spring.practice.domin.Member;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 

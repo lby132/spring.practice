@@ -6,6 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
+@Transactional
 class MemberServiceTest {
 
     @Autowired
@@ -24,6 +26,8 @@ class MemberServiceTest {
     void 회원가입() {
         final Member member = new Member();
         member.setName("spring");
+        member.setPassword("sss110");
+        member.setAge(12);
 
         final Long saveId = memberService.join(member);
         final Member findMember = memberService.findOne(saveId).get();

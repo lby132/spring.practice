@@ -19,7 +19,7 @@ public class JdbcMemberRepository implements MemberRepository {
 
     @Override
     public Member save(Member member) {
-        String sql = "insert into member(name) values(?)";
+        String sql = "insert into member(name,password,age) values(?,?,?)";
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -29,6 +29,8 @@ public class JdbcMemberRepository implements MemberRepository {
             conn = dataSource.getConnection();
             pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, member.getName());
+            pstmt.setString(2, member.getPassword());
+            pstmt.setInt(3, member.getAge());
 
             pstmt.executeUpdate();
             rs = pstmt.getGeneratedKeys();
@@ -126,6 +128,8 @@ public class JdbcMemberRepository implements MemberRepository {
                 Member member = new Member();
                 member.setId(rs.getLong("id"));
                 member.setName(rs.getString("name"));
+                member.setPassword(rs.getString("password"));
+                member.setAge(rs.getInt("age"));
 
                 members.add(member);
             }

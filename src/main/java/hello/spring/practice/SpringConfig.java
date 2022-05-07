@@ -2,7 +2,6 @@ package hello.spring.practice;
 
 import hello.spring.practice.repository.JdbcMemberRepository;
 import hello.spring.practice.repository.MemberRepository;
-import hello.spring.practice.repository.MemoryMemberRepository;
 import hello.spring.practice.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

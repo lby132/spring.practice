@@ -3,6 +3,7 @@ package hello.spring.practice.service;
 import hello.spring.practice.domin.Member;
 import hello.spring.practice.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
